@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    #customerForm,
+    #sellerForm,
+    #devForm {
+      padding-bottom: 5rem;
+    }
+
+    #buttons {
+      text-align: center;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="hamburger.css">
+  <script src="ham.js" defer></script>
+</head>
+
+<body>
+  <script>
+    window.onload = function () {
+      var inputs = document.querySelectorAll("input");
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].setAttribute("required", "true");
+      }
+    };
+  </script>
+  <header style="background-image: none; height: fit-content">
+    <nav style="background-color: rgba(1, 105, 121, 0.5)" id="nav">
+      <a id="logo"><img src="logo.png" alt="" /></a>
+      <ul id="ul1">
+        <li>
+          <form id="search_bar" action="" method="">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <button id="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </li>
+
+        <li><a href="index">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="index#contacts">Contact</a></li>
+        <li><a href="login">login</a></li>
+        <li id="cart">
+          <a href=""><img src="Shopping_cart_icon.svg" alt="" /></a>
+        </li>
+      </ul>
+      <p data-value="1" id="hamIcon"><img src="hamburger_icon.png" alt=""></p>
+    </nav>
+  </header>
+  <div id="buttons">
+    <button style="margin-top: 3rem" class="btn btn-primary" id="customer" onclick="toggleCustomer()">
+      SignUp As Customer
+    </button>
+    <button style="margin-top: 3rem" class="btn btn-primary" id="seller" onclick="toggleseller()">
+      SignUp As Seller
+    </button>
+    <button style="margin-top: 3rem" class="btn btn-primary" id="dev" onclick="toggleDev()">
+      SignUp As Dev
+    </button>
+  </div>
+
+  <!-- customer form -->
+
+  <form action="/customer" method="POST" id="customerForm" style="width: 60rem; margin-top: 5rem; display: none">
+    <p>1</p>
+    <script>
+      function toggleCustomer() {
+        var customer = document.getElementById("customerForm");
+        var seller = document.getElementById("sellerForm");
+        seller.style.display = "none";
+        var button = document.getElementById("customer");
+        var dev = document.getElementById("devForm");
+        dev.style.display = "none";
+        if (customer.style.display === "none") {
+          customer.style.display = "block";
+        } else {
+          customer.style.display = "none";
+        }
+      }
+    </script>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        <input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Password" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Full Name</label>
+      <input name="name" type="text" class="form-control" id="inputAddress" placeholder="Full Name" />
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Current Address</label>
+      <input name="adress1" type="text" class="form-control" id="inputAddress" placeholder="Current Adress" />
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Permanent Address</label>
+      <input name="adress2" type="text" class="form-control" id="inputAddress2" placeholder="Permanent Adress" />
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input name="city" type="text" class="form-control" id="inputCity" />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">Division</label>
+        <select name="state" id="inputState" class="form-control">
+          <option value="Khulna">Khulna</option>
+          <option value="Dhaka">Dhaka</option>
+          <option value="Barishal">Barishal</option>
+          <option value="Sylhet">Sylhet</option>
+          <option value="Chittagong">Chittagong</option>
+          <option value="Rajshahi">Rajshahi</option>
+          <option value="Rangpur">Rangpur</option>
+          <option value="Mymensingh">Mymensingh</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input name="zip" type="text" class="form-control" id="inputZip" />
+      </div>
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+
+  <!-- seller form -->
+
+  <form action="/seller" method="POST" id="sellerForm" style="width: 60rem; margin-top: 5rem; display: none">
+    <p>2</p>
+    <script>
+      function toggleseller() {
+        var customer = document.getElementById("customerForm");
+        customer.style.display = "none";
+        var button = document.getElementById("seller");
+        var seller = document.getElementById("sellerForm");
+        var dev = document.getElementById("devForm");
+        dev.style.display = "none";
+        if (seller.style.display === "none") {
+          seller.style.display = "block";
+        } else {
+          seller.style.display = "none";
+        }
+      }
+    </script>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input name="email1" type="email" class="form-control" id="inputEmail4" placeholder="Email" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        <input name="password1" type="password" class="form-control" id="inputPassword4" placeholder="Password" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Full Name</label>
+      <input name="name1" type="text" class="form-control" id="inputAddress" placeholder="Full Name" />
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Current Address</label>
+      <input name="adress11" type="text" class="form-control" id="inputAddress" placeholder="Current Adress" />
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Permanent Adress</label>
+      <input name="adress21" type="text" class="form-control" id="inputAddress2" placeholder="Permanent Adress" />
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input name="city1" type="text" class="form-control" id="inputCity" />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">Division</label>
+        <select name="state" id="inputState" class="form-control">
+          <option value="Khulna">Khulna</option>
+          <option value="Dhaka">Dhaka</option>
+          <option value="Barishal">Barishal</option>
+          <option value="Sylhet">Sylhet</option>
+          <option value="Chittagong">Chittagong</option>
+          <option value="Rajshahi">Rajshahi</option>
+          <option value="Rangpur">Rangpur</option>
+          <option value="Mymensingh">Mymensingh</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input name="zip1" type="text" class="form-control" id="inputZip" />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+
+  <!-- Dev Form Part -->
+
+  <form action="/dev" method="POST" id="devForm" style="width: 60rem; margin-top: 5rem; display: none">
+    <p>3</p>
+    <script>
+      function toggleDev() {
+        var customer = document.getElementById("customerForm");
+        customer.style.display = "none";
+        var button = document.getElementById("seller");
+        var seller = document.getElementById("sellerForm");
+        seller.style.display = "none";
+
+        var dev = document.getElementById("devForm");
+        if (dev.style.display === "none") {
+          dev.style.display = "block";
+        } else {
+          dev.style.display = "none";
+        }
+      }
+    </script>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input name="email2" type="email" class="form-control" id="inputEmail4" placeholder="Email" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        <input name="password2" type="password" class="form-control" id="inputPassword4" placeholder="Password" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Full Name</label>
+      <input name="name2" type="text" class="form-control" id="inputAddress" placeholder="Full Name" />
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Current Address</label>
+      <input name="adress12" type="text" class="form-control" id="inputAddress" placeholder="Current Address" />
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Permanent Adress</label>
+      <input name="adress22" type="text" class="form-control" id="inputAddress2" placeholder="Permanent Adress" />
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input name="city2" type="text" class="form-control" id="inputCity" />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">Division</label>
+        <select name="state" id="inputState" class="form-control">
+          <option value="Khulna">Khulna</option>
+          <option value="Dhaka">Dhaka</option>
+          <option value="Barishal">Barishal</option>
+          <option value="Sylhet">Sylhet</option>
+          <option value="Chittagong">Chittagong</option>
+          <option value="Rajshahi">Rajshahi</option>
+          <option value="Rangpur">Rangpur</option>
+          <option value="Mymensingh">Mymensingh</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input name="zip2" type="text" class="form-control" id="inputZip" />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign up</button>
+  </form>
+
+  <ul id="hamMenu">
+    <br>
+
+    <li><a href="index">Home</a></li>
+    <li><a href="">About</a></li>
+    <li><a href="#contacts">Contact</a></li>
+    <li><a href="login">login</a></li>
+    <li id="cart">
+      <a href="login"><img src="shopping-cart-512.png" alt="" /></a>
+    </li>
+  </ul>
+</body>
+
+</html>

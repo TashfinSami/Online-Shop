@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+
+      #ul2{
+        height: 42rem;
+      }
+      #ul2 img {
+    height: 17rem;
+    width: 50rem;
+    object-fit: cover;
+    border-top-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    position: relative;
+    top: -7rem;
+    left: -17rem;
+    scale: .4;
+    display: block;
+}
+#ul2 button{
+  top: .5rem;
+}
+
+#ul2 p{
+  top: 0;
+  margin: 0;
+}
+li{
+  padding: 0;
+}
+#ul2 h2{
+  top: 0;
+}
+body{
+  text-align: center;
+}
+    </style>
+  </head>
+  <body>
+  
+      <nav style="background-color: rgba(1, 105, 121, 0.5)" id="nav">
+        <a id="logo"><img src="logo.png" alt="" /></a>
+        <ul id="ul1">
+          <li>
+            <form id="search_bar" action="/track" method="POST">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Enter Tracking Number"
+                aria-label="Search"
+                name="tracking_number"
+              />
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </li>
+          <li
+            style="
+              position: relative;
+              top: 0.5rem;
+              color: white;
+              justify-content: center;
+              align-self: center;
+              align-content: center;
+            "
+          >
+            
+          </li>
+          <li><a href="dev">Home</a></li>
+          <li><a href="manageOrder">Manage</a></li>
+          <li><a href="#contacts">Contact</a></li>
+          <li>
+            <form id="logout" action="/logout" method="POST">
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Logout
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+   
+
+      <div>
+        
+        <h2 style="margin: auto;">All Orders</h2>
+        <div id="products">
+          <% for (let t = 0; t < alldata.length / 2; t++) { %>
+            <% const t1 = alldata[t]; %>
+            <% const t2 = alldata[Math.ceil(alldata.length / 2) + t]; %>
+            <ul id="ul2">
+              <li style="height: 8rem;"><img style="scale: .5; margin-top: 0;" src="<%= t1.image_add %>" alt="" /></li>
+              <li style="height: fit-content;">
+                <ul style="list-style: none; margin-top: .5rem;">
+                  <li><p>Customer</p></li>
+                  
+                  <li><h2><%= t1.name %></h2></li>
+                </ul>
+                <hr>
+                <ul style="list-style: none;">
+                  <li><p>Seller</p></li>
+                  <li><h2><%= t2.name %></h2></li>
+                </ul>
+              </li>
+              <hr>
+              <li><p>Tracking Number: <%= t1.tracking_number %></p></li>
+              <hr>
+              <li>
+                <h2>Status of Customer.</h2>
+                <form action="">
+                  <select class="form-control form-control-lg" name="status_customer" id="">
+                    <option value="">Order placed</option>
+                    <option value="">Received from Seller.</option>
+                    <option value="">Shipped.</option>
+                    <option value="">Arrived At your Town.</option>
+                    <option value="">Received By Customer.</option>
+                  </select>
+                  <button class="btn btn-outline-success my-2 my-sm-0">Submit</button>
+                </form>
+              </li>
+              <hr>
+              <li>
+                <h2>Status of Seller.</h2>
+                <form action="">
+                  <select class="form-control form-control-lg" name="status_customer" id="">
+                    <option value="">Order Placed</option>
+                    <option value="">Received from Seller.</option>
+                    <option value="">Shipped.</option>
+                    <option value="">Arrived At your Town.</option>
+                    <option value="">Received By Customer.</option>
+                    <option value="">Payment Received.</option>
+                  </select>
+                  <button class="btn btn-outline-success my-2 my-sm-0">Submit</button>
+                </form>
+              </li>
+            </ul>
+          <% } %>
+        </div>
+        
+
+
+      </div>
+     
+
+
+
+
+
+
+  </body>
+</html>

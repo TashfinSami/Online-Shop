@@ -1,0 +1,32 @@
+#ul2{
+    height: 42rem;
+  }
+  #ul2 img {
+height: 17rem;
+width: 50rem;
+object-fit: cover;
+border-top-left-radius: 0rem;
+border-bottom-right-radius: 0rem;
+position: relative;
+top: -7rem;
+left: -17rem;
+scale: .4;
+display: block;
+}
+#ul2 button{
+top: .5rem;
+}
+
+#ul2 p{
+top: 0;
+margin: 0;
+}
+li{
+padding: 0;
+}
+#ul2 h2{
+top: 0;
+}
+body{
+text-align: center;
+}

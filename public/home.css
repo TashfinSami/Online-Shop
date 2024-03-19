@@ -1,0 +1,390 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    zoom: 100%;
+    overflow-x: hidden;
+}
+
+#logo{
+    padding: 1rem;
+}
+#logo img{
+    padding: 1rem;
+   
+    width: 20rem;
+    transition: all .5s;
+    
+}
+#logo img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+#nav{
+    display: flex;
+    justify-content: space-between;
+    
+    
+    
+    
+}
+#ul1{
+    list-style: none;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    
+    padding: .5rem;
+}
+li{
+    padding: 1rem;
+}
+
+
+form{
+    
+    position: relative;
+    
+   
+    margin: auto;
+}
+input{
+    width: 50rem;
+    height: 3rem;
+    border-radius: 4rem;
+    border:1px;
+    box-shadow: .5px .5px .5px .5px rgb(220, 232, 232);
+}
+#search_bar{
+    display: flex;
+}
+
+header{
+    
+    height: fit-content;
+    background-color:#0fb8f6;
+    background-image: url(kindpng_1616862.png);
+    
+    background-position-x: right;
+    
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: contain;
+}
+li a{
+    color: rgb(168, 224, 249);
+    font-size: 1rem;
+    font-weight: 600;
+}
+#section1{
+    height: 35rem;
+    color: aliceblue;
+    padding: 1rem;
+}
+#section1 h2{
+    margin-top: 10rem;
+}
+#button{
+font-weight: 500;
+color: rgb(140, 225, 197);
+}
+
+nav ul li a{
+    padding: .8rem;
+    transition: all .3s;
+    border-radius: 3px;
+}
+nav ul li a:hover{
+    text-decoration: none;
+
+    background-color: rgba(217, 227, 236, .5);
+    color: rgb(41, 37, 37);
+}
+#cart a:hover{
+    background-color: transparent;
+}
+
+#cart:hover img{
+    transform: scale(1.1);
+}
+
+#cart img{
+    height: 2rem;
+    width: 2rem;
+    transition: all .7s;
+}
+#section1 h3,h4{
+    font-family: 'Konkhmer Sleokchher', cursive;
+    font-size: 3rem;
+    padding: 1rem;
+    margin-top: -1.5rem;
+}
+#section1 h2{
+    
+    font-size: 2rem;
+    padding: 1rem;
+    color: rgba(23, 23, 23, 0.7);
+}
+
+#ul2{
+    width: 20rem;
+    text-align: center;
+    border: rgb(14, 12, 12) 5rem;
+    height: 38rem;
+    list-style: none;
+    padding: 1rem;
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+    margin: 0rem 2rem 2rem 0rem;
+    background-color: rgba(232, 223, 223,.4);
+    border-top-left-radius: 2rem;
+    overflow: hidden;
+}
+
+#ul2 img{
+ height: 25rem;
+ width: 20rem;
+ object-fit: cover;
+ border-top-left-radius: 2rem;
+ border-bottom-right-radius: 2rem;
+ position: relative;
+ top: -2rem;
+ left: -2rem;
+ transition: all .4s;
+ display: block;
+}
+#ul2 img:hover{
+    transform: scale(1.1);
+}
+#ul2 h2{
+    position: relative;
+    top: -2rem;
+    font-family: 'Konkhmer Sleokchher', cursive;
+    color: rgba(0, 0, 0,.5);
+    font-size: 1.2rem;
+}
+#ul2 p{
+    position: relative;
+    top: -4rem;
+    font-family: 'Konkhmer Sleokchher', cursive;
+    color: rgba(0, 0, 0,.6);
+}
+#ul2 button{
+    position: relative;
+    top: -6rem;
+}
+#products{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+#products img{
+    margin-left: .5rem;
+}
+footer{
+
+    height: 20rem;
+    align-content: center;
+    align-items: center;
+    background-color: rgb(39, 47, 41);
+    
+    color: aliceblue;
+    font-size: 1rem;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+h5{
+    color: aliceblue;
+}
+
+#hamicon {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    left: 13rem;
+    top: 2rem;
+    display: none;
+  }
+  
+  #hamicon span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+  }
+  
+  #hampage {
+    width: 10rem;
+    height: 23rem;
+    position: fixed;
+    top: 2.5rem;
+    left: 62rem;
+  
+    background-color: rgb(133, 204, 180);
+    border-radius: 2rem;
+  
+    display: none;
+  }
+  #hampage:target {
+    display: block;
+  }
+  #hampage ul {
+    flex-direction: column;
+    position: relative;
+    left: -7.5rem;
+  }
+  #hampage #hamicon {
+    position: relative;
+    left: 3.7rem;
+  }
+  #hampage ul {
+    position: relative;
+    top: 4rem;
+    left: -8.1rem;
+  }
+
+  .plus:hover,.minus:hover{
+         cursor: pointer;
+  }
+
+
+  .confirmOrder{
+    text-align: center;
+    padding: 1.55rem 5rem;
+    width: 100%;
+    top: .5rem;
+    display: none;
+    justify-content: flex-end;
+    
+  }
+  .content{
+    background-color: rgba(117, 116, 116,.5);
+    padding: 2rem;
+    float: right;
+  }
+  .finalPlaceOrder,
+.placeOrder,
+.cancelOrder,
+.addToCart,
+.removeFromCart {
+  border: 1px solid #28a745; /* Set the border color */
+  box-sizing: border-box;
+  box-shadow: none;
+  color: #28a745;
+  padding: 0 2rem;
+  margin-left: .5rem;
+  transition: all 0.2s;
+}
+.addToCart{
+    padding: .5rem 1rem;
+}
+
+.finalPlaceOrder:hover,
+.cancelOrder:hover,
+.placeOrder:hover,
+.addToCart:hover,
+.removeFromCart:hover,
+.print:hover {
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  
+}
+
+
+.placeOrder:focus,
+.placeOrder:active {
+  outline: none; /* Remove default focus outline */
+}
+.finalplaceOrder:focus,
+.finalplaceOrder:active {
+  outline: none; /* Remove default focus outline */
+}
+.cancelOrder:focus,
+.cancelOrder:active {
+  outline: none; /* Remove default focus outline */
+}
+
+.addToCart:focus,
+.addToCart:active {
+  outline: none; /* Remove default focus outline */
+}
+
+.removeFromCart:focus,
+.removeFromCart:active {
+  outline: none; /* Remove default focus outline */
+}
+
+.print:focus,
+.print:active {
+  outline: none; /* Remove default focus outline */
+}
+.notificationOfAddCart{
+    visibility: hidden;
+    position: relative;
+    top: -3rem;
+    
+    transition:all .5s ease-in-out;
+    
+}
+
+@keyframes button-glow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media(max-width:768px){
+
+    html{
+        zoom: 30%;
+    }
+    #ham{
+        display: flex;
+    }
+    .hide{
+        display: none;
+    }
+    #search_bar,#button,#hamIcon{
+        margin-left: 2rem;
+    }
+    #hamIcon{
+        position: relative;
+        left: -2rem;
+        margin-left: 2rem;
+        zoom: 120%;
+    }
+    #ul2{
+        zoom: 200%;
+    }
+    #logo{
+        zoom: 150%;
+    }
+    #section1{
+        zoom: 150%;
+        margin-bottom: 10rem;
+    }
+    header{
+        height: fit-content;
+    }
+    
+}
+body{
+    position: relative;
+    min-height: 100vh;
+}

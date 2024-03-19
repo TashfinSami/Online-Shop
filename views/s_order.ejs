@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      li{
+        padding: 0;
+      }
+      #ul2 img{
+        margin-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header style="background-image: none; height: fit-content">
+      <nav style="background-color: rgba(1, 105, 121, 0.5)" id="nav">
+        <a id="logo"><img src="logo.png" alt="" /></a>
+        <ul id="ul1">
+          <li>
+            <form id="search_bar" action="" method="">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </li>
+          <li
+            style="
+              position: relative;
+              top: 0.5rem;
+              color: white;
+              justify-content: center;
+              align-self: center;
+              align-content: center;
+            "
+          >
+          </li>
+          <li><a href="seller">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="#contacts">Contact</a></li>
+          <li>
+            <form id="logout" action="/logout" method="POST">
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Logout
+              </button>
+            </form>
+          </li>
+          <li id="cart">
+            <a href="cart"><img src="Shopping_cart_icon.svg" alt="" /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <div id="products">
+        <% for (let t=0; t < alldata.length; t++) { %>
+          <% const t1=alldata[t]; %>
+          <ul id="ul2">
+            <li><img style="height: 18rem; margin-top: 0;" src="<%= t1.image_add %>" alt="" /></li>
+            <li style="height: fit-content;">
+              <hr>
+              <ul style="list-style: none; margin-top: 5rem;">
+                <li><p>Customer</p></li>
+                <li style="margin-top: -3rem;"><h2><%= t1.name %></h2></li>
+              </ul>
+            </li>
+            <br>
+            <li style="margin-top: 0;"><p>Tracking Number: <%= t1.tracking_number %></p></li>
+            
+              <h2>Status of Order.</h2> <br>
+              <p><%= t1.seller_status %></p>
+             
+            </li>
+            <hr style="margin-top: -3rem;">
+          </ul>
+        <% } %>
+      </div>
+      
+
+
+  </body>
+</html>

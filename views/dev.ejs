@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="hamburger.css">
+    <script src="ham.js" defer ></script>
+  </head>
+  <body>
+    <ul id="hamMenu">
+      <br>   
+     <li><a href="index">Home</a></li>
+     <li><a href="">About</a></li>
+     <li><a href="manageOrder">Manage Orders</a></li>
+     <li><form id="logout" action="/logout" method="POST">
+      <button
+        id="button"
+        class="btn btn-outline-success my-2 my-sm-0"
+        type="submit"
+      >
+        Logout
+      </button></li>
+     
+   </ul>
+    <nav id="nav" style="background-color: rgb(36, 138, 233)">
+      <a id="logo"><img src="logo.png" alt="" /></a>
+      <ul id="ul1">
+        
+        <li
+          style="
+            position: relative;
+            top: 0.5rem;
+            color: white;
+            justify-content: center;
+            align-self: center;
+            align-content: center;
+          "
+        >
+          <p><%= nameofdev %></p>
+        </li>
+        <li><a href="dev">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="manageOrder">Manage Orders</a></li>
+        <li>
+          <form id="logout" action="/logout" method="POST">
+            <button
+              id="button"
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
+              Logout
+            </button>
+          </form>
+        </li>
+        
+      </ul>
+      <p data-value="1" id="hamIcon"><img src="hamburger_icon.png" alt=""></p>
+    </nav>
+    <main style="text-align: center; margin-top: 2rem; height: 5rem">
+      <h1
+        style="
+          margin: auto;
+          color: rgb(42, 40, 40);
+          font-family: 'Courier New', Courier, monospace;
+        "
+      >
+        Request Pending
+      </h1>
+      <div id="products">
+        <% for (const dev of dev_pending) { %>
+        <ul
+          id="ul2"
+          style="
+            height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 1rem;
+          "
+        >
+          <li><h1><%= dev.name %></h1></li>
+          <li><h2><%= dev.email %></h2></li>
+          <li><p><%= dev.adress1 %></p></li>
+          <li style="display: flex">
+            <form
+              style="position: relative; left: 1.3rem"
+              action="/accept"
+              method="POST"
+            >
+              <input
+                name="devId"
+                style="display: none"
+                type="text"
+                value="<%= dev.ID %>"
+              /><button class="btn btn-outline-success my-2 my-sm-0">
+                Accept
+              </button>
+            </form>
+            <form
+              style="position: relative; left: -1.3rem"
+              action="/reject"
+              method="POST"
+            >
+              <input
+                name="devId1"
+                style="display: none"
+                type="text"
+                value="<%= dev.ID %>"
+              /><button class="btn btn-outline-success my-2 my-sm-0">
+                Reject
+              </button>
+            </form>
+          </li>
+        </ul>
+        <% } %>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: none;
+      }
+      #imgp {
+        margin: 0rem;
+        height: 5rem;
+        width: 7rem;
+        object-fit: cover;
+      }
+      #cartel {
+        background-color: rgba(92, 81, 81, 0.1);
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 0rem;
+        margin-top: 0.5rem;
+        align-items: center;
+        height: 5rem;
+      }
+
+      #cartel h2,
+      p {
+        width: fit-content;
+        margin-bottom: 0rem;
+      }
+    </style>
+    <link rel="stylesheet" href="hamburger.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="ham.js" defer></script>
+    <script src="cart.js" defer></script>
+  </head>
+  <body>
+    <ul id="hamMenu" style="z-index:2;">
+      <br>
+      <li style="width: 30%; margin: auto;"><form id="search_bar" action="/search" method="POST">
+       <input
+         class="form-control mr-sm-2"
+         type="search"
+         placeholder="Search"
+         aria-label="Search"
+         name="searchItem"
+       />
+       <button
+         id="button"
+         class="btn btn-outline-success my-2 my-sm-0"
+         type="submit"
+       >
+         Search
+       </button>
+     </form></li>    
+   <li><a href="index_log">Home</a></li>
+     <li><a href="">About</a></li>
+     <li><a href="#contacts">Contact</a></li>
+     <li><form id="logout" action="/logout" method="POST">
+      <button
+        id="button"
+        class="btn btn-outline-success my-2 my-sm-0"
+        type="submit"
+      >
+        Logout
+      </button></li>
+     <li id="cart">
+       <a href="c_order">Orders</a>
+     </li>
+ </ul>
+    <nav style="background-color: #0fb8f6" id="nav">
+      <a id="logo"><img src="logo.png" alt="" /></a>
+      <ul id="ul1">
+        <li>
+        </li>
+
+        <li><a href="index_log">Home</a></li>
+        <li><a href="c_order">Orders</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="#contacts">Contact</a></li>
+        <li>
+          <form id="logout" action="/logout" method="POST">
+            <button
+              id="button"
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
+              Logout
+            </button>
+          </form>
+        </li>
+      </ul>
+      <p style="z-index: 3;" data-value="1" id="hamIcon"><img src="hamburger_icon.png" alt=""></p>
+    </nav>
+
+    <div id="products" class="cart_products">
+      <% for (const t of allproducts) { %>
+        <div id="confirmOrder" class="confirmOrder">
+            <div class="content">
+            <p>Are You Sure?</p><br>
+                   <button type="submit" class="finalPlaceOrder">Confirm</button>
+                   <button class="cancelOrder">Cancel</button>
+          </div>
+          
+                   
+                </div>
+      <ul class="cartItems" id="cartel" style="display: flex; list-style: none;">
+        <li style="justify-content: left; margin-left: -1rem">
+          <img id="imgp" src="<%= t.image_add %>" alt="" />
+        </li>
+        <li><h2><%= t.name %></h2></li>
+        <li id="Details_cart"><p><%= t.Details %></p></li>
+        <li id="price_cart"><p><%= t.price %> taka</p></li>
+        <li style="display: flex; justify-content: space-between;">
+ <form class="placeOrderForm" style="display: flex; justify-content: space-between; z-index: 1;" action="/placeOrder" method="POST">
+          
+<div style="display: flex; margin-right: 50px;">
+          <p class="plus" style=" padding: 0.7rem; background-color: #0fb8f6;">+</p>
+          <input name="kaka"  value="1" class="display" style="text-align: center; border-radius: 0px; background-color: white; padding: 0.3rem; width: 50px;"></input>
+          <p class="minus" style=" font-weight: bold; padding: 0.7rem; background-color: #0fb8f6;">-</p>
+        </div>
+
+       <input name="product_id" value="<%= t.product_id %>" type="hidden">
+          <button  type="button" class="placeOrder">
+              Place Order
+            </button>
+
+            
+          </form>
+          
+        
+        
+            <button name="product_id1" value="<%= t.product_id %>" style="padding: 0.7rem;" class="removeFromCart">
+            Remove
+          </button>
+          
+        </li>
+      </ul>
+      <% } %>
+    </div>
+    
+
+    <footer id="contacts">
+      <%- include('footer.ejs') %>
+    </footer>
+  </body>
+</html>

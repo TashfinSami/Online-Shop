@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="hamburger.css">
+    <script src="ham.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <ul id="hamMenu">
+           <br>
+           <li style="width: 30%; margin: auto;"><form id="search_bar" action="/search" method="POST">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="searchItem"
+            />
+            <button
+              id="button"
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
+              Search
+            </button>
+          </form></li>    
+        <li><a href="index">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="#contacts">Contact</a></li>
+          <li><a href="login">login</a></li>
+          <li id="cart">
+            <a href="login"><img src="shopping-cart-512.png" alt="" /></a>
+          </li>
+      </ul>
+      <nav id="nav">
+        <a id="logo" href="index"><img src="logo.png" alt="" /></a>
+        <ul id="ul1">
+          <li>
+            <form id="search_bar" action="/search" method="POST">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                name="searchItem"
+              />
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </li>
+
+            <li><a href="index">Home</a></li>
+                  <li><a href="">About</a></li>
+                  <li><a href="#contacts">Contact</a></li>
+                  <li><a href="login">login</a></li>
+                  <li id="cart">
+                    <a href="login"><img src="Shopping_cart_icon.svg" alt="" /></a>
+                  </li>
+          
+        </ul>
+                  
+                
+        <p data-value="1" id="hamIcon"><img src="hamburger_icon.png" alt=""></p>
+
+       
+      </nav>
+  
+
+      <section id="section1">
+        <h2>Best Deal.</h2>
+        <h3>
+          We have everything that you need. <br />
+          At a lower price.
+        </h3>
+        <h4>Shop with us now and elevate your shopping experience with us.</h4>
+      </section>
+    </header>
+    <main style="text-align: center; margin-top: 2rem">
+      <h1
+        style="
+          margin: auto;
+          color: rgb(42, 40, 40);
+          font-family: 'Courier New', Courier, monospace;
+        "
+      >
+        Products
+      </h1>
+      <div id="products">
+        <% for (const t of allproducts) { %>
+        <ul id="ul2">
+          <li><img src="<%= t.image_add %>" alt="" /></li><br>
+          <li><h2><%= t.p_name %></h2></li><br>
+          <li><p><%= t.price %> taka</p></li><br>
+          <li>
+            <a href="login"
+              ><button class="btn btn-outline-success my-2 my-sm-0">
+                Add to Cart
+              </button></a
+            >
+          </li>
+        </ul>
+        <% } %>
+      </div>
+    </main>
+
+    <footer id="contacts">
+      <%- include('footer.ejs') %>
+    </footer>
+  </body>
+</html>

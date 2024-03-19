@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header style="background-image: none; height: fit-content">
+      <nav style="background-color: rgba(1, 105, 121, 0.5)" id="nav">
+        <a id="logo"><img src="logo.png" alt="" /></a>
+        <ul id="ul1">
+          <li>
+            <form id="search_bar" action="" method="">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </li>
+
+          <li><a href="seller">Home</a></li>
+          <li><a href="">Manage Products</a></li>
+          <li><a href="seller#contacts">Contact</a></li>
+          <li>
+            <form id="logout" action="/logout" method="POST">
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Logout
+              </button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <form
+      action="/addproduct"
+      method="POST"
+      enctype="multipart/form-data"
+      style="width: 50rem; margin-top: 5rem"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom01">product_name</label>
+          <input
+            name="product_name"
+            type="text"
+            class="form-control"
+            id="validationCustom01"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom02">product_price</label>
+          <input
+            name="product_price"
+            type="text"
+            class="form-control"
+            id="validationCustom02"
+            required
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">product_details</label>
+          <input
+            name="product_details"
+            type="text"
+            class="form-control"
+            id="validationCustom03"
+            required
+          />
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom05">Image</label>
+          <input
+            name="image"
+            style=" border: none; box-shadow: none"
+            type="file"
+            accept=".jpg,.png,.jpeg"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+
+    <footer id="contacts">
+      <%- include('footer.ejs') %>
+    </footer>
+  </body>
+</html>

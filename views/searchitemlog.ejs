@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="hamburger.css">
+    <script src="ham.js" defer></script>
+    <script src="cart.js" defer></script>
+  </head>
+  <body>
+    <header style="background-image: none; height: fit-content">
+      <nav style="background-color: rgba(1, 105, 121, 0.5)" id="nav">
+        <a id="logo"><img src="logo.png" alt="" /></a>
+        <ul id="ul1">
+          <li>
+            <form id="search_bar" action="/search_log" method="POST">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                name="searchItem"
+              />
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </li>
+          <li
+            style="
+              position: relative;
+              top: 0.5rem;
+              color: white;
+              justify-content: center;
+              align-self: center;
+              align-content: center;
+            "
+          >
+            
+          </li>
+          <li><a href="index_log">Home</a></li>
+          <li><a href="c_order">Orders</a></li>
+          <li><a href="#contacts">Contact</a></li>
+          <li>
+            
+            <form id="logout" action="/logout" method="POST">
+              <button
+                id="button"
+                class="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Logout
+              </button>
+            </form>
+          </li>
+
+          <li id="cart">
+            <a href="cart"><img src="shopping-cart-512.png" alt="" /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main style="text-align: center; margin-top: 2rem">
+     <% if (searchitem.length===0) { %>
+      <h1>No Products Found.</h1>
+     <% } else { %>
+      
+      <h1
+        style="
+          margin: 2rem auto;
+          color: rgb(42, 40, 40);
+          font-family: 'Courier New', Courier, monospace;
+        "
+      >
+        Products
+      </h1>
+      <div id="products">
+        <% for( const searchItem of searchitem ) { %>
+        <ul id="ul2">
+          <li><img src="<%= searchItem.image_add %>" alt="" /></li><br>
+          <li><h2><%= searchItem.p_name %></h2></li><br>
+          <li><p>$<%= searchItem.price %></p></li><br>
+          <li>
+            <button name="product_id" value="<%= searchItem.product_id %>" class="addToCart">
+               Add to Cart
+             </button>
+           </li>
+           <li class="notificationOfAddCart"><p>Item Added To Cart</p></li>
+        </ul>
+        <% } %>
+        <% } %>
+      </div>
+    </main>
+    <footer id="contacts">
+      <%- include('footer.ejs') %>
+    </footer>
+  </body>
+</html>

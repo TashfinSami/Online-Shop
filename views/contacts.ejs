@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="order.css">
+  <style>
+    #ul2 img {
+
+      height: 35rem;
+      top: -10rem;
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <header style="background-image: none; height: fit-content">
+    <nav style="background-color: rgba(1, 105, 121, 0.5)" id="nav">
+      <a id="logo"><img src="logo.png" alt="" /></a>
+      <ul id="ul1">
+        <li>
+          <form id="search_bar" action="" method="">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <button id="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </li>
+
+        <li><a href="index_log">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="#contacts">Contact</a></li>
+        <li>
+          <form id="logout" action="/logout" method="POST">
+            <button id="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Logout
+            </button>
+          </form>
+        </li>
+        <li id="cart">
+          <a href="cart"><img src="Shopping_cart_icon.svg" alt="" /></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <p><h2>Contact number: +8801628778472<br>+8801851592751</h2></p>
+  <p><h2>E-mail: onlineshop@gmail.com</h2></p>
+
+  
+<footer id="contacts">
+  <%- include('footer.ejs') %>
+</footer>
+</body>
+
+</html>
