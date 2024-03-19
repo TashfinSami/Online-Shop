@@ -111,7 +111,7 @@ app.get("/", function (req, res) {
   }else{
     res.redirect('dev');
   }
-	}catch{ res.redirect("index")]
+	}catch{ res.redirect("index")}
 });
 
 app.get("/index_log", async function (req, res) {
